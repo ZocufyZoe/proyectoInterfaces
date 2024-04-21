@@ -1,4 +1,4 @@
-function App() {
+function App() { // Root
   return (
     <>
       <h1>hello world</h1>

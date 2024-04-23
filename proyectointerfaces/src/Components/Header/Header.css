@@ -1,0 +1,17 @@
+header {
+    margin-top: 40px;
+    display: flex;
+    position: relative;
+    flex-direction: row; /* Alinea los hijos horizontalmente */
+    justify-content: center; /* Centra los hijos horizontalmente */
+    align-items: center; /* Centra los hijos verticalmente */
+    gap: 10px; /* Añade espacio entre los elementos */
+}
+
+
+.pet-name {
+    position: absolute;
+    left: 0; /* Alinea el nombre a la izquierda del contenedor */
+    
+    transform: translatex(160%); /* Centra verticalmente */
+  }

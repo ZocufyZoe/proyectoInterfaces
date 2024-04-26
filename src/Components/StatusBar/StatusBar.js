@@ -2,7 +2,7 @@ import React from 'react';
 import './StatusBar.css';
 
 function StatusBar({ value, max, color }) {
-  const percentage = (value / max) * 100;
+  const percentage = value
 
   return (
     <div className="status-bar-background">

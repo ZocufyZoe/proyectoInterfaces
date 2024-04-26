@@ -2,34 +2,31 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
+import Pet from "./Components/Pet/Pet";
+import regularPet from './images/pet-images/pou-regular.png';
+
+
 import './App.css';
 
 
 function App() {
   // Estado para los atributos de la mascota
-  const [affection, setAffection] = useState(0); 
+  const [affection, setAffection] = useState(100); 
 
-
+  // Hook de React que te permite ejecutar efectos secundarios en componentes funcionales
   useEffect(() => {
-    // Establece un intervalo que decrementa la barra de afecto
+    // Función de JavaScript que ejecuta repetidamente una función dada a intervalos establecidos (en milisegundos)
     const intervalId = setInterval(() => {
-      setAffection((prevAffection) => {
+      setAffection((currentAffection) => {
        
-        return prevAffection > 0 ? prevAffection - 1 : 0;
+        return currentAffection > 0 ? currentAffection - 1 : 0;
       });
     }, 1000 * 1); // decrementa cada 1 segundo 
 
-    // Función de limpieza para ejecutarse cuando el componente se desmonte
+    // Siempre limpiar intervalos (si no pueden aparecer varios intervalos que actuen sobre el componente y provoca situaciones no esperadas)
     return () => clearInterval(intervalId);
   }, []); // El array vacío asegura que el efecto se ejecute solo después del montaje
 
-
-
-  const [hungriness, setHungriness] = useState(50);
-
-  const [cleanliness, setCleanliness] = useState(100);
-
-  
 
   // Funciones para cambiar el estado
   const increaseAffection = () => {
@@ -40,6 +37,12 @@ function App() {
     if (affection > 90 && affection <= 100) setAffection(affection + 0.5);
   };
 
+
+  const [hungriness, setHungriness] = useState(50);
+
+  const [cleanliness, setCleanliness] = useState(100);
+
+  const [petImage, setPetImage] = useState(regularPet);
  
   return (
     <div className="App">
@@ -48,9 +51,10 @@ function App() {
       affection={affection}
       hungriness={hungriness}
       cleanliness={cleanliness}
-      onIncreaseAffection={increaseAffection}
     />
 
+    <Pet image={petImage} />
+    
     <Footer
       onIncreaseAffection={increaseAffection}
     />

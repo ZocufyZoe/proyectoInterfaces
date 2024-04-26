@@ -7,7 +7,7 @@
     padding: 150px 0; /* Añade un poco de padding arriba y abajo del footer */
   }
   
-button {
+.footer button {
     background-color: rgb(225, 148, 228);
     color: black;
     padding: 25px 25px;
@@ -15,10 +15,10 @@ button {
     border-radius: 10px;
 }
 
-  button:hover {
-    background-color: rgb(255, 168, 248); /* Cambia el color de fondo al pasar el cursor */
-    transform: scale(1.1); 
-    color: white; 
-    cursor: pointer;
-  }
+.footer button:hover {
+  background-color: rgb(255, 168, 248); /* Cambia el color de fondo al pasar el cursor */
+  transform: scale(1.1); 
+  color: white; 
+  cursor: pointer;
+}
 

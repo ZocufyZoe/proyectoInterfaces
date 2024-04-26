@@ -8,6 +8,7 @@ function Header({petName,affection,hungriness,cleanliness}) {
         <StatusBar value={affection} max={100} color="red" />
         <StatusBar value={hungriness} max={100} color="orange" />
         <StatusBar value={cleanliness} max={100} color="#00f0f8" />
+        <button className="help-button">?</button>
     </header>
   );
 }

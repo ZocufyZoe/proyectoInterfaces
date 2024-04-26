@@ -1,0 +1,12 @@
+/* Pet.css */
+.pet-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+  }
+  
+  .pet-image {
+    max-width: 100%; 
+    height: auto; 
+    margin-top: 150px;
+  }

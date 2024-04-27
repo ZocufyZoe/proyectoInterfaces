@@ -1,6 +1,7 @@
 
 import {Routes,Route} from "react-router-dom";
 import PantallaInicio from "./Ventanas/PantallaInicio";
+import PantallaNombre from "./Ventanas/PantallaNombre";
 import PantallaSeleccion from "./Ventanas/PantallaSeleccion";
 import PantallaPrincipal from "./Ventanas/PantallaPrincipal";
 
@@ -18,13 +19,21 @@ function App() {
                 </>
            
             }/>
+        <Route path='/nombre' 
+            element={
+
+               <>
+                   <PantallaNombre/>
+               </>
+            }/>
+
         <Route path='/seleccion' 
             element={
 
                <>
                    <PantallaSeleccion/>
                </>
-            }/>
+            }/>    
 
         <Route path='/principal' 
             element={

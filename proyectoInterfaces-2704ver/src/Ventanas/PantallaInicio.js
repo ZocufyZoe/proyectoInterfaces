@@ -6,7 +6,7 @@ function PantallaInicio(){
         <>
             <h1>PIXEL PALS</h1>
             <p>This is home page</p>
-            <Link to="/seleccion">
+            <Link to="/nombre">
                 <button>Click para empezar</button>
             </Link>
             

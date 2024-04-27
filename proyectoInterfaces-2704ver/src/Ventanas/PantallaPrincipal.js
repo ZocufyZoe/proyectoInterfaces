@@ -1,16 +1,13 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import Footer from "./Components/Footer/Footer";
-import Header from "./Components/Header/Header";
-import Pet from "./Components/Pet/Pet";
-import regularPet from './images/pet-images/pou-regular.png';
+import Footer from "../Components/Footer/Footer";
+import Header from "../Components/Header/Header";
+import Pet from "../Components/Pet/Pet";
+import regularPet from '../images/pet-images/pou-regular.png';
+import '../App.css';
 
-
-import './App.css';
-
-
-function App() {
-  // Estado para los atributos de la mascota
+function PantallaPrincipal(){
+    // Estado para los atributos de la mascota
   const [affection, setAffection] = useState(100); 
 
   // Hook de React que te permite ejecutar efectos secundarios en componentes funcionales
@@ -43,25 +40,23 @@ function App() {
   const [cleanliness, setCleanliness] = useState(100);
 
   const [petImage, setPetImage] = useState(regularPet);
- 
-  return (
-    <div className="App">
-    <Header 
-      petName="Roberto"
-      affection={affection}
-      hungriness={hungriness}
-      cleanliness={cleanliness}
-    />
 
-    <Pet image={petImage} />
-    
-    <Footer
-      onIncreaseAffection={increaseAffection}
-    />
-  </div>
-  );
+  return( <>
+        <div className="App">
+        <Header 
+        petName="Roberto"
+        affection={affection}
+        hungriness={hungriness}
+        cleanliness={cleanliness}
+        />
+
+        <Pet image={petImage} />
+
+        <Footer
+         onIncreaseAffection={increaseAffection}
+        />
+        </div>
+    </>
+    );
 }
-
-export default App;
-
-
+export default PantallaPrincipal;

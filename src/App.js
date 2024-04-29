@@ -6,8 +6,6 @@ import PantallaPrincipal from "./Ventanas/PantallaPrincipal";
 import { PetProvider } from "./Components/PetContext";
 
 function App() {
-    
-
   return (
     <PetProvider>
       <Routes>

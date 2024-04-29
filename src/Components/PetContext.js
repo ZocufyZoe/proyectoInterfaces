@@ -1,5 +1,6 @@
 // Creamos un archivo PetContext.js
 import React, { useState, createContext, useContext } from 'react';
+import regularPet from "../images/pet-images/pou-regular.png";
 
 const PetContext = createContext();
 
@@ -12,9 +13,10 @@ export function usePet() {
 // Componente 
 export const PetProvider = ({ children }) => {
   const [petName, setPetName] = useState('');
+  const [petImage, setPetImage] = useState(regularPet);
 
   return (
-    <PetContext.Provider value={{ petName, setPetName }}>
+    <PetContext.Provider value={{ petName, setPetName, petImage, setPetImage }}>
       {children}
     </PetContext.Provider>
   );

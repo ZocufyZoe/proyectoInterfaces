@@ -40,9 +40,9 @@ function PantallaPrincipal(){
 
   const [cleanliness, setCleanliness] = useState(100);
 
-  const [petImage, setPetImage] = useState(regularPet);
+  
 
-  const { petName } = usePet();
+  const { petName, petImage } = usePet();
 
   return( <>
         <div className="App">

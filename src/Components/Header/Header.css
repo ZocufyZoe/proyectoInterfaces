@@ -21,7 +21,7 @@ header {
 .pet-name {
     position: absolute;
     left: 0; /* Alinea el nombre a la izquierda del contenedor */
-    transform: translatex(160%); /* Centra verticalmente */
+     /* Centra verticalmente */
 }
 
 

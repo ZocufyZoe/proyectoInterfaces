@@ -1,0 +1,13 @@
+.heart-container {
+    position: absolute;
+    top: 15%; /* Ajusta la posición para que el corazón aparezca donde lo desees */
+    left: 45.3%;
+    
+    cursor: pointer; /* Cambia el cursor para indicar que es clickeable */
+    
+}
+
+.heart-icon {
+    height: 180px;
+    width: 180px;
+}

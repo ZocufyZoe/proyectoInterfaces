@@ -1,9 +1,12 @@
 import './Footer.css';
 
-function Footer({onIncreaseAffection}) {
+function Footer({onActivateHeart, affection}) {
+
+  
+
   return (
     <div className="footer">
-      <button onClick={onIncreaseAffection}>Afecto</button>
+      <button onClick={() => onActivateHeart(true)}>Afecto</button>
       <button>Comida</button>
       <button>Limpieza</button>
       <button>Juegos</button>

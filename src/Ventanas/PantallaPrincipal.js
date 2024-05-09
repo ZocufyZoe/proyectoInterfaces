@@ -13,7 +13,13 @@ import './PantallaPrincipal.css';
 
 function PantallaPrincipal(){
     // Estado para los atributos de la mascota
-  const [affection, setAffection] = useState(100); 
+  const [affection, setAffection] = useState(10); 
+
+  const [hungriness, setHungriness] = useState(50);
+
+  const [cleanliness, setCleanliness] = useState(100);
+
+  const [showHeart, setShowHeart] = useState(false);
 
   // Hook de React que te permite ejecutar efectos secundarios en componentes funcionales
   
@@ -51,17 +57,10 @@ function PantallaPrincipal(){
     if (affection == 100) setShowHeart(false)
   };
 
-
-  const [hungriness, setHungriness] = useState(50);
-
-  const [cleanliness, setCleanliness] = useState(100);
-
-  const [showHeart, setShowHeart] = useState(false);
-  
-
   const { petName, petImage } = usePet();
 
-  return( <>
+  return( 
+      <>
         <div className="App">
         <Header 
         petName={petName}
@@ -81,9 +80,6 @@ function PantallaPrincipal(){
           {showHeart && (<img onClick={increaseAffection} className="heart-icon" src={heart} alt="heart"></img> 
           )}
         </div>
-        
-
-
         </div>
     </>
     );

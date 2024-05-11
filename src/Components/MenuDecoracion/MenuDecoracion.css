@@ -1,0 +1,21 @@
+.fondo-actual{
+    
+    width: 25%; /* Adjust as needed */
+    height:  25%; /* Adjust as needed */
+}
+
+
+
+.lista-fondos{
+    width: 25%; /* Adjust as needed */
+    height:  25%; /* Adjust as needed */
+}
+
+ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0; /* Remove default padding */
+  /* Use flexbox */
+}
+li {
+   /* Adjust spacing between list items */
+}

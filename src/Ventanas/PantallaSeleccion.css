@@ -1,34 +1,50 @@
-
 .container {
-    margin-top: 220px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    /* You can add other styles as needed */
+    height: 100vh; /* Optional: adjust the height as needed */
 }
 
-
 .slider {
+    position: relative;
     width: 500px;
-    height: 250px;
-    padding-top: 11px;
+    height: 300px;
+    padding: 20px;
     border-radius: 10px;
 }
 
-.item {
-    left: 123px;
+.select-pou-text {
+    position: absolute;
+    bottom: 350px;
+    left: 50%;
+    z-index: 2;
+    transform: translateX(-50%); /* Centra el elemento horizontalmente */
+    padding: 10px; /* Espaciado interno */
+    font-family: 'Crimson Pro', serif;
 }
 
 .confirm {
-    padding-top: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+    top: 350px;
+    left: 50%;
+    z-index: 1;
+    transform: translateX(-50%); /* Centra el elemento horizontalmente */
+    padding: 10px; /* Espaciado interno */
 }
 
-.select-pou-text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: x-large;
-}
+.container-images {
+    position: relative;
+    text-align: center; /* Alinea los elementos horizontalmente en el centro */
+  }
+  
+  .item {
+    position: relative;
+    left: 75%;
+    transform: translateX(-50%);
+  }
 
+  .carousel-indicators {
+    position: absolute;
+    top: 250px;
+  }

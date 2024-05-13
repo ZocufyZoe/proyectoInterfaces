@@ -40,43 +40,47 @@ function PantallaSeleccion() {
 
   return (
     <>
-      <p className="select-pou-text">Selecciona tu mascota</p>
       <div className="container">
-        <Carousel interval={null} className="slider bg-secondary" onSelect={handleSelect}>
-          <Carousel.Item className="item">
-            <img className="d-block w-50" src={regularPet} alt="Pou Color Regular"/>
-          </Carousel.Item>
-
-          <Carousel.Item className="item">
-            <img className="d-block w-50" src={redPet} alt="Pou Color Blue" />
-          </Carousel.Item>
-
-          <Carousel.Item className="item">
-            <img className="d-block w-50" src={greenPet} alt="Pou Color Regular"/>
-          </Carousel.Item>
-
-          <Carousel.Item className="item">
-            <img className="d-block w-50" src={yellowPet} alt="Pou Color Blue" />
-          </Carousel.Item>
-
-          <Carousel.Item className="item">
-            <img className="d-block w-50" src={pinkPet} alt="Pou Color Regular"/>
-          </Carousel.Item>
-
-          <Carousel.Item className="item">
-            <img className="d-block w-50" src={bluePet} alt="Pou Color Blue" />
-          </Carousel.Item>
-        </Carousel>
-      </div>
-
-      <div className="confirm">
-        <Link to="/principal">
+        <div className="slider bg-secondary">
+          <h1 className="select-pou-text">Selecciona tu mascota</h1>
+          <Carousel interval={null} className="container-images" onSelect={handleSelect}>
+            <Carousel.Item className="item">
+              <img className="d-block w-50" src={regularPet} alt="Pou Color Regular"/>
+            </Carousel.Item>
+  
+            <Carousel.Item className="item">
+              <img className="d-block w-50" src={redPet} alt="Pou Color Blue" />
+            </Carousel.Item>
+  
+            <Carousel.Item className="item">
+              <img className="d-block w-50" src={greenPet} alt="Pou Color Regular"/>
+            </Carousel.Item>
+  
+            <Carousel.Item className="item">
+              <img className="d-block w-50" src={yellowPet} alt="Pou Color Blue" />
+            </Carousel.Item>
+  
+            <Carousel.Item className="item">
+              <img className="d-block w-50" src={pinkPet} alt="Pou Color Regular"/>
+            </Carousel.Item>
+  
+            <Carousel.Item className="item">
+              <img className="d-block w-50" src={bluePet} alt="Pou Color Blue" />
+            </Carousel.Item>
+          </Carousel>
+          <div className="confirm">
+          <Link to="/nombre">
+            <button>Ir atrás</button>
+          </Link>
+          <Link to="/principal">
             <button>Confirmar selección</button>
-        </Link>
+          </Link>
+        </div>
+        </div>
+        
       </div>
-      
     </>
-  );
+  )  
 }
 
 export default PantallaSeleccion;

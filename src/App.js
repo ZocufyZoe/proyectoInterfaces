@@ -4,9 +4,11 @@ import PantallaNombre from "./Ventanas/PantallaNombre";
 import PantallaSeleccion from "./Ventanas/PantallaSeleccion";
 import PantallaPrincipal from "./Ventanas/PantallaPrincipal";
 import { PetProvider } from "./Components/PetContext";
+import "./index.css";
 
 function App() {
   return (
+    <div className="container">
     <PetProvider>
       <Routes>
 
@@ -46,6 +48,7 @@ function App() {
         />
       </Routes>
     </PetProvider>
+    </div>
   );
 }
 

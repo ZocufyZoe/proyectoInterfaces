@@ -1,0 +1,77 @@
+.help-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001; /* Ensure the modal is above the overlay */
+  }
+
+  .help-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0); /* Semi-transparent black overlay */
+    z-index: 1000; /* Ensure the overlay is above other content */
+}
+
+  
+  .help-content {
+    background-color: plum;
+    padding: 20px;
+    width: 50%;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .foto{
+    width: 30px;
+    height: 30px;
+  }
+
+  .volver{
+    background: transparent;
+    border: 0;
+    
+  }
+
+  .derecha{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .texto {
+    flex-grow: 1; /* El texto ocupará todo el espacio disponible */
+    text-align: center; /* Centra el texto horizontalmente */
+  }
+
+  .tablaayuda {
+    width: 100%; /* Opcional: Puedes ajustar el ancho de la tabla según tus necesidades */
+    border-collapse: collapse;
+  }
+
+  .tablaayuda th, .tablaayuda td {
+    border: 2px solid white; /* Ajusta el ancho y el color del borde */
+    padding: 2px;
+    text-align: left;
+  }
+  
+  
+  .columnaizquierda {
+    width: 20%; 
+    padding: 20px;
+    text-align: center;
+    /* Ajusta el ancho de la primera columna según tus necesidades */
+  }
+
+  .columnaderecha {
+    text-align: center;
+    width: 80%; 
+    padding: 20px;
+  }
+

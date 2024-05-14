@@ -17,7 +17,16 @@ const seleccionarImagen=(event)=>{
 };
 
     return (
-        <Modal isOpen={isOpen} onRequestClose={onClose}>
+
+       
+        <Modal 
+          
+            className="modal-container-owo"
+            overlayClassName="modal-overlay-owo"
+            isOpen={isOpen}
+            onRequestClose={onClose}>
+
+            <div className="modal-content">
             {children}
             <h1>DECORACIÓN</h1>
             <table>
@@ -50,9 +59,12 @@ const seleccionarImagen=(event)=>{
                 <li><img onClick ={seleccionarImagen} src={fondobasico2} alt="paisaje" className="lista-fondos"/></li>
             </ul>
             
-            <button onClick={onClose}>X</button>
+            <button className='cerrar-owo' onClick={onClose}>X</button>
+            </div>
         </Modal>
+        
     );
 };
 
 export default MenuDecoracion;
+

@@ -1,12 +1,54 @@
 /* Pet.css */
 .pet-container {
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-  }
-  
-  .pet-image {
-    max-width: 100%; 
-    height: auto; 
-    margin-top: 230px;
-  }
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 500px;
+}
+
+.pet-image {
+  position: relative;
+  max-width: 100%; 
+  height: auto; 
+  top: 100px;
+  z-index: 1;
+}
+
+.cleaning-area {
+position: absolute;
+margin-top: 100px;
+height: 120px;
+width: 120px;
+z-index: 3;
+}
+
+.cleaning-info {
+position: relative;
+top: -280px;
+}
+
+.bathtub-icon {
+position: absolute;
+margin-left: -170px;
+top: 350px;
+scale: 1.5;
+z-index: 2;
+
+}
+
+
+.bathtub-container {
+position: absolute;
+top: 37%; 
+left: 33.7%;
+}
+
+.heart-icon {
+position: absolute;
+margin-left: 1px;
+top: 120px;
+height: 180px;
+width: 180px;
+cursor: pointer;
+
+}

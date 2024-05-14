@@ -1,34 +1,104 @@
-
 .container {
-    margin-top: 220px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    /* You can add other styles as needed */
+    height: 100vh; /* Optional: adjust the height as needed */
 }
 
-
 .slider {
+    position: relative;
     width: 500px;
-    height: 250px;
-    padding-top: 11px;
+    height: 300px;
+    padding: 20px;
     border-radius: 10px;
 }
 
-.item {
-    left: 123px;
+.select-pou-text {
+  text-align: center;
 }
 
 .confirm {
-    padding-top: 10px;
+    position: absolute;
+    top: 350px;
+    left: 50%;
+    z-index: 1;
+    transform: translateX(-50%); /* Centra el elemento horizontalmente */
+    width: 500px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Esto centrarÃ¡ horizontalmente los elementos dentro del contenedor */
+    margin-top: 20px; 
+}
+
+.container-images {
+    position: relative;
+    text-align: center; /* Alinea los elementos horizontalmente en el centro */
+  }
+  
+  .item {
+    left: 25%;
+  }
+
+  .carousel-indicators {
+    position: absolute;
+    top: 250px;
+  }
+
+  .card-custom {
+    background: linear-gradient(to bottom, #f083b9, #f5c9e0);
+    border-radius: 30px;
+    border: 15px solid white;
+}
+
+.botonDegradadoNombre {
+    background: linear-gradient(to bottom, #f083b9, #f5c9e0);
+    border: none;
+    border-color: white;
+    color: white;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 5px solid white;
+    place-items: center
+
+}
+
+.botonDegradadoNombre:hover {
+    background: linear-gradient(to bottom, #f083b9, #f5c9e0);
+    border-radius: 20px;
+    border: 5px solid white;
+    font-size: 21.5px;
+    place-items: center
 }
 
 .select-pou-text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: x-large;
+  font-family: "Brush Script MT", cursive;
+  font-size: 3.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: #a30041;
 }
 
+.botonDegradadoNombre {
+  background: linear-gradient(to bottom, #f083b9, #f5c9e0);
+  border: none;
+  border-color: white;
+  color: white;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  border-radius: 20px;
+  border: 5px solid white;
+
+}
+
+.botonDegradadoNombre:hover {
+  background: linear-gradient(to bottom, #f083b9, #f5c9e0);
+  border-radius: 20px;
+  border: 5px solid white;
+  font-size: 21.5px;
+}

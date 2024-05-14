@@ -59,7 +59,7 @@ function PantallaPrincipal(){
         return currentH > 0 ? currentH - decreaseValue : 0;
       });
 
-    }, 1000 * 1); // decrementa cada 1 segundo IMPORTANTE: AUN SE DEBE ACLARAR CUANTOS SEGUNDOS ES LO OPTIMO EN UN ESCENARIO REAL
+    }, 1000 * 10); // decrementa cada 1 segundo IMPORTANTE: AUN SE DEBE ACLARAR CUANTOS SEGUNDOS ES LO OPTIMO EN UN ESCENARIO REAL
 
     // Siempre limpiar intervalos (si no pueden aparecer varios intervalos que actuen sobre el componente y provoca situaciones no esperadas)
     return () => clearInterval(intervalId);
@@ -81,7 +81,7 @@ function PantallaPrincipal(){
       
         return currentAffection > 0 ? currentAffection - decreaseValue : 0;
       });
-    }, 1000 * 10); // decrementa cada 20 segundo IMPORTANTE: AUN SE DEBE ACLARAR CUANTOS SEGUNDOS ES LO OPTIMO EN UN ESCENARIO REAL
+    }, 1000 * 30); // decrementa cada 20 segundo IMPORTANTE: AUN SE DEBE ACLARAR CUANTOS SEGUNDOS ES LO OPTIMO EN UN ESCENARIO REAL
 
     // Siempre limpiar intervalos (si no pueden aparecer varios intervalos que actuen sobre el componente y provoca situaciones no esperadas)
     return () => clearInterval(intervalId);
@@ -100,7 +100,7 @@ function PantallaPrincipal(){
 
         return currentCleanliness > 0 ? currentCleanliness - 1 : 0;
       });
-    }, 1000 * 5); 
+    }, 1000 * 30); 
     return () => clearInterval(intervalId);
   }, []);
 

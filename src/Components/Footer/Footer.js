@@ -1,14 +1,22 @@
 import './Footer.css';
 
-function Footer({onActivateHeart, affection}) {
+function Footer({onActivateHeart, onCleaningMode, onHandleCleaningDone, onHandleCleaningMode}) {
 
-  
+  function afectoHandler () {
+    onActivateHeart(true);
+    onHandleCleaningDone();
+  }
+
+  function cleaningHandler () {
+     onActivateHeart(false);
+     onCleaningMode();
+  }
 
   return (
     <div className="footer">
-      <button onClick={() => onActivateHeart(true)}>Afecto</button>
+      <button onClick={afectoHandler} >Afecto</button>
       <button>Comida</button>
-      <button>Limpieza</button>
+      <button onClick={cleaningHandler}>Limpieza</button>
       <button>Juegos</button>
       <button>Tienda</button>
       <button>Decoración</button>

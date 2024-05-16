@@ -15,13 +15,7 @@
 }
 
 .select-pou-text {
-    position: absolute;
-    bottom: 350px;
-    left: 50%;
-    z-index: 2;
-    transform: translateX(-50%); /* Centra el elemento horizontalmente */
-    padding: 10px; /* Espaciado interno */
-    font-family: 'Crimson Pro', serif;
+  text-align: center;
 }
 
 .confirm {
@@ -30,7 +24,10 @@
     left: 50%;
     z-index: 1;
     transform: translateX(-50%); /* Centra el elemento horizontalmente */
-    padding: 10px; /* Espaciado interno */
+    width: 500px;
+    display: flex;
+    justify-content: center; /* Esto centrará horizontalmente los elementos dentro del contenedor */
+    margin-top: 20px; 
 }
 
 .container-images {
@@ -39,12 +36,69 @@
   }
   
   .item {
-    position: relative;
-    left: 75%;
-    transform: translateX(-50%);
+    left: 25%;
   }
 
   .carousel-indicators {
     position: absolute;
     top: 250px;
   }
+
+  .card-custom {
+    background: linear-gradient(to bottom, #f083b9, #f5c9e0);
+    border-radius: 30px;
+    border: 15px solid white;
+}
+
+.botonDegradadoNombre {
+    background: linear-gradient(to bottom, #f083b9, #f5c9e0);
+    border: none;
+    border-color: white;
+    color: white;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 5px solid white;
+    place-items: center
+
+}
+
+.botonDegradadoNombre:hover {
+    background: linear-gradient(to bottom, #f083b9, #f5c9e0);
+    border-radius: 20px;
+    border: 5px solid white;
+    font-size: 21.5px;
+    place-items: center
+}
+
+.select-pou-text {
+  font-family: "Brush Script MT", cursive;
+  font-size: 3.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: #a30041;
+}
+
+.botonDegradadoNombre {
+  background: linear-gradient(to bottom, #f083b9, #f5c9e0);
+  border: none;
+  border-color: white;
+  color: white;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  border-radius: 20px;
+  border: 5px solid white;
+
+}
+
+.botonDegradadoNombre:hover {
+  background: linear-gradient(to bottom, #f083b9, #f5c9e0);
+  border-radius: 20px;
+  border: 5px solid white;
+  font-size: 21.5px;
+}

@@ -9,8 +9,11 @@ import yellowPet from "../images/pet-images/pou-yellow.png";
 import bluePet from "../images/pet-images/pou-blue.png";
 import { usePet } from "../Components/PetContext";
 import "./PantallaSeleccion.css";
+import MyVerticallyCenteredModal from "../Components/MyVerticallyCenteredModal/MyVerticallyCenteredModal";
 
 function PantallaSeleccion() {
+  const [modalShow, setModalShow] = React.useState(false);
+
   const { setPetImage } = usePet();
   
   const handleSelect = (selectedIndex) => {
@@ -41,8 +44,10 @@ function PantallaSeleccion() {
   return (
     <>
       <div className="container">
+      <div className="card-custom p-5 mb-4">
+      <h1 className="select-pou-text">Selecciona tu mascota</h1>
         <div className="slider bg-secondary">
-          <h1 className="select-pou-text">Selecciona tu mascota</h1>
+          
           <Carousel interval={null} className="container-images" onSelect={handleSelect}>
             <Carousel.Item className="item">
               <img className="d-block w-50" src={regularPet} alt="Pou Color Regular"/>
@@ -70,15 +75,20 @@ function PantallaSeleccion() {
           </Carousel>
           <div className="confirm">
           <Link to="/nombre">
-            <button>Ir atrás</button>
+            <button className="botonDegradadoNombre">Ir atrás</button>
           </Link>
-          <Link to="/principal">
-            <button>Confirmar selección</button>
-          </Link>
+          
+            <button className="botonDegradadoNombre" onClick={() => setModalShow(true)}>Confirmar selección</button>
+          
+          </div>
         </div>
         </div>
-        
       </div>
+
+      <MyVerticallyCenteredModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
     </>
   )  
 }

@@ -8,7 +8,6 @@ import "./index.css";
 
 function App() {
   return (
-    <div className="container">
     <PetProvider>
       <Routes>
 
@@ -48,7 +47,6 @@ function App() {
         />
       </Routes>
     </PetProvider>
-    </div>
   );
 }
 

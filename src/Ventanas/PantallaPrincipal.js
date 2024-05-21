@@ -9,9 +9,15 @@ import Pet from "../Components/Pet/Pet";
 import Fondo from "../Components/Fondo/Fondo"
 import MenuDecoracion from "../Components/MenuDecoracion/MenuDecoracion";
 import InventarioComida from "../Components/InventarioComida/InventarioComida";
+import Tienda from "../Components/Tienda/Tienda";
 import fondobasico2 from '../images/fondo-images/fondobasico2.jpg';
 import love_speech_balloon from "../images/love_speech.png";
 import love_sound from "../sounds/I_love_you.mp3";
+import comiendo from "../sounds/comiendo.mp3";
+import limon from '../images/comida-images/limon.png';
+import pera from '../images/comida-images/pera.png';
+import fresa from '../images/comida-images/fresa.png';
+import BackgroundMusic from "../Components/BackgroundMusic";
 
 
 function PantallaPrincipal(){
@@ -19,6 +25,7 @@ function PantallaPrincipal(){
   const { petName, petImage } = usePet();
   
     // Estado para los atributos de la mascota
+ 
   const [affection, setAffection] = useState(10); 
   const [hungriness, setHungriness] = useState(50);
   const [cleanliness, setCleanliness] = useState(10);
@@ -124,8 +131,8 @@ function PantallaPrincipal(){
     }
   };
 
-  const decreaseHungriness = () => {
-    setHungriness(hungriness+20);
+  function decreaseHungriness(ptos){
+    setHungriness(hungriness+ptos);
   }
 
 //rebeca working
@@ -133,6 +140,12 @@ function PantallaPrincipal(){
   const closeDeco = () => {
       setIsDecoOpen(false);
   };
+
+  const [isTiendaOpen, setIsTiendaOpen] = useState(false);
+  const closeTienda = () => {
+      setIsTiendaOpen(false);
+  };
+
   const[fondoImage,setFondoImage] = useState(fondobasico2)
   const cambioFondo=(imageDeseada)=>{
       setFondoImage(imageDeseada);
@@ -150,15 +163,28 @@ function PantallaPrincipal(){
   const[comidaSelected, setComidaSelected]=useState("")
     const seleccionarFood =(event)=>{
         setComidaSelected(event.target.src);
-        decreaseHungriness();
+        decreaseHungriness(parseInt(event.target.getAttribute('data-puntos')));
+        const id = parseInt(event.target.getAttribute('data-id'));
+        new Audio(comiendo).play();
+        setProducts(products.map(producto => producto.id === id ? { ...producto, cantidad: producto.cantidad-1} : producto));
         setShowFood(true);
     };
-  
 
+
+
+  
+  const [products, setProducts] = useState([
+        { id: 1, imagen: fresa, nombre:'fresa', precio: 5, cantidad:3, puntos:30, cantidadCarro:0},
+        { id: 2, imagen: pera, nombre:'pera', precio: 3, cantidad:3, puntos:10, cantidadCarro:0},
+        { id: 3, imagen: limon, nombre:'limon', precio: 2, cantidad:3, puntos:5, cantidadCarro:0}
+  ]);
+
+  //<BackgroundMusic  src="/sounds/comiendo.mp3"/> 
   return( <>
         <div className="App">
-          
+        
         <Fondo image= {fondoImage}/>
+        
           
         <Header 
         petName={petName}
@@ -183,6 +209,9 @@ function PantallaPrincipal(){
 
          openDecoF={setIsDecoOpen}
          openInventary={setFoodInventoyOpen}
+         openTiendita={setIsTiendaOpen}
+         arrayProductos={products}
+         modificarArray={setProducts}
          
         />
 
@@ -192,7 +221,7 @@ function PantallaPrincipal(){
           )}
         </div>
         <div className="food-message">
-          {showFood && (<h1>Ñam Ñam!</h1>)}
+          {showFood && (<h1>Ñam!</h1>)}
         </div>
         <div className="speech-balloon-container">
             {showILoveYou && (<img className="speech-balloon-icon" src={love_speech_balloon} alt="i love you speech balloon"></img> 
@@ -209,7 +238,15 @@ function PantallaPrincipal(){
             onClose={closeInventory}
             seleccionarComida={seleccionarFood} 
             showComida={setShowFood}
+            arrayProductos={products}
+     
             />
+
+          <Tienda isOpen={isTiendaOpen}
+          onClose={closeTienda} 
+          arrayProductos={products}
+          modificarArray={setProducts}
+          />
        
         </div>
     </>

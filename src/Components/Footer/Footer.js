@@ -1,7 +1,7 @@
 import './Footer.css';
 
 function Footer({onActivateHeart, onCleaningMode, onHandleCleaningDone,
-  openDecoF, openInventary}) {
+  openDecoF, openInventary, openTiendita,  arrayProductos, modificarArray}) {
 
   function afectoHandler () {
     onActivateHeart(true);
@@ -12,6 +12,10 @@ function Footer({onActivateHeart, onCleaningMode, onHandleCleaningDone,
      onActivateHeart(false);
      onCleaningMode();
   }
+  function tiendaHandler(){
+    modificarArray(arrayProductos.map(producto => ( { ...producto, cantidadCarro: 0})));
+    openTiendita(true);
+  }
 
   return (
     <div className="footer">
@@ -19,7 +23,7 @@ function Footer({onActivateHeart, onCleaningMode, onHandleCleaningDone,
       <button onClick={() => openInventary(true)} >Comida</button>
       <button onClick={cleaningHandler}>Limpieza</button>
       <button>Juegos</button>
-      <button>Tienda</button>
+      <button onClick={tiendaHandler}>Tienda</button>
       <button onClick={()=>openDecoF(true)}>Decoración</button>
     </div>
   );

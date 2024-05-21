@@ -1,14 +1,24 @@
 import React from 'react';
 import Modal from 'react-modal';
 
-import { useState } from "react";
 import './InventarioComida.css';
-import limon from '../../images/comida-images/limon.png';
-import pera from '../../images/comida-images/pera.png';
-import fresa from '../../images/comida-images/fresa.png';
 
-const InventarioComida = ({ isOpen, onClose, children, seleccionarComida}) => {
 
+const InventarioComida = ({ isOpen, onClose, children,
+   seleccionarComida, arrayProductos}) => {
+
+
+    /*
+    <InventarioComida isOpen={isFoodInventoryOpen} 
+            onClose={closeInventory}
+            seleccionarComida={seleccionarFood} 
+            showComida={setShowFood}
+            arrayProductos={products}
+            cambiarPuntos={setPuntosSelected}
+            />*/ 
+
+
+       
     
     return (
     <Modal
@@ -19,11 +29,27 @@ const InventarioComida = ({ isOpen, onClose, children, seleccionarComida}) => {
     >
       <div className="modal-content">
         {children}
-        <h3>Inventario</h3>
+        <h3>¡Haz click en la comida!</h3>
         <ul>
-        <li> <img onClick ={seleccionarComida} src={limon} alt="limon" className="lista-comida"/></li>
-        <li> <img onClick ={seleccionarComida} src={pera} alt="pera" className="lista-comida"/></li>
-        <li> <img onClick ={seleccionarComida} src={fresa} alt="fresa" className="lista-comida"/></li>
+          {arrayProductos.map(producto=>(
+           <>
+              {producto.cantidad > 0 && (
+              <li>
+              <div>
+              <img onClick ={seleccionarComida}
+               src={producto.imagen}
+                alt={producto.nombre} 
+                className="lista-comida"
+                data-puntos={producto.puntos}
+                data-id={producto.id} />
+              <p>{producto.cantidad}</p>
+             
+              </div>
+              </li>
+            )}   
+            </>
+            
+          ))}
         </ul>
         <button className='cerrar' onClick={onClose}>X</button>
       </div>

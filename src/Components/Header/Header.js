@@ -5,6 +5,8 @@ import { useState } from "react";
 import foodLogo from '../../images/food-icon-status-bar.png'
 import heartLogo from '../../images/heart-status-logo.png'
 import cleanLogo from '../../images/cleaning-status-logo.png'
+import coin from '../../images/coin.png'
+import { usePet } from "../PetContext";
 
 function Header({petName,affection,hungriness,cleanliness}) {
 
@@ -21,9 +23,10 @@ function Header({petName,affection,hungriness,cleanliness}) {
     const togglePopup = () => {
       setShowPopup(!showPopup);
     };
-    
+    const { money} = usePet();
 
   return (
+    
     <header>
       <h1 className="pet-name">{petName}</h1>
       
@@ -33,6 +36,8 @@ function Header({petName,affection,hungriness,cleanliness}) {
         
         <button className="help-button" onClick={togglePopup}>?</button>
         {showPopup && <Ayuda Cerrar={togglePopup}/>}
+        <img className="icon" src={coin}></img>
+        <h2>total: {money}</h2>
     </header>
   );
 }

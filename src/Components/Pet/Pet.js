@@ -21,7 +21,7 @@ function Pet({ image, cleaningMode, cleanliness, setCleanliness, showHeart, incr
       
       {showHeart && !cleaningMode && (
         <>
-          
+          <h1 className='heart-info'>Haz click en el corazon!</h1>
           <img onClick={increaseAffection} className="heart-icon" src={heart} alt="heart" />
         </>
       )}
@@ -31,7 +31,7 @@ function Pet({ image, cleaningMode, cleanliness, setCleanliness, showHeart, incr
 
       {cleaningMode && cleanliness < 100 && (
         <div className="text-center">
-          
+          <h1 className='bath-info'>Frota bien a tu mascota!</h1>
           <img className="img-fluid bathtub-icon" src={bathtub} alt="bathtub" />
         </div>
       )}

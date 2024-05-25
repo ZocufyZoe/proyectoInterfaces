@@ -1,0 +1,91 @@
+/* Game.css */
+.game-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .pet {
+    position: absolute;
+    bottom: 0;
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  .coin {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .bomb {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+}
+  
+  .score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+  }
+  
+  .timer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+  }
+  
+  .game-over {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+  }
+  
+  .game-over h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .game-over p {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .game-over button {
+    font-size: 20px;
+    padding: 10px 20px;
+  }
+  
+  .modall {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    
+  }
+
+  .button-dificulty{
+    display: flex;
+  }
+
+  .exit-button{
+    position: absolute;
+    left: 5%;
+    width: 80px;
+    height: 40px;
+  }

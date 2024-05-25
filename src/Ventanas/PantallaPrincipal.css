@@ -53,3 +53,34 @@
     cursor: url('../images/cursor-sponge.png') 50 50, auto;
 }
 
+
+
+
+
+
+
+/**/
+.food-container{
+    position: absolute;
+    top: 56%; /* Ajusta la posición para que el corazón aparezca donde lo desees */
+    left: 27%;
+    
+}
+
+.food-icon{
+    height: 100px;
+    width: 100px;
+}
+
+.food-message{
+    position: absolute;
+    top: 46%; /* Ajusta la posición para que el corazón aparezca donde lo desees */
+    left: 21%;
+}
+
+.food-message h1{
+    color: #ff1493; /* Set the color of the text */
+    -webkit-text-stroke-width: 1px; /* Set the width of the text stroke */
+    -webkit-text-stroke-color: white; 
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}

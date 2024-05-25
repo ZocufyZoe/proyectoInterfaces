@@ -1,0 +1,29 @@
+
+.container-flechita {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+  }
+  
+  .arrow-button {
+    font-size: 1.5rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 0 10px;
+  }
+  
+  .arrow-button:disabled {
+    background-color: #cccccc;
+  }
+  
+  input[type="number"] {
+    width: 60px;
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 0 10px;
+  }

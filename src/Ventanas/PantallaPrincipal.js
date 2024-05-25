@@ -6,17 +6,26 @@ import { usePet } from "../Components/PetContext";
 import Footer from "../Components/Footer/Footer";
 import Header from "../Components/Header/Header";
 import Pet from "../Components/Pet/Pet";
-
+import Fondo from "../Components/Fondo/Fondo"
+import MenuDecoracion from "../Components/MenuDecoracion/MenuDecoracion";
+import InventarioComida from "../Components/InventarioComida/InventarioComida";
+import Tienda from "../Components/Tienda/Tienda";
+import fondobasico2 from '../images/fondo-images/fondobasico2.jpg';
 import love_speech_balloon from "../images/love_speech.png";
-import bathtub from "../images/bathtub.png";
 import love_sound from "../sounds/I_love_you.mp3";
-
+import comiendo from "../sounds/comiendo.mp3";
+import limon from '../images/comida-images/limon.png';
+import pera from '../images/comida-images/pera.png';
+import fresa from '../images/comida-images/fresa.png';
+import BackgroundMusic from "../Components/BackgroundMusic";
 
 
 function PantallaPrincipal(){
+  
   const { petName, petImage } = usePet();
-
-  // Estado para los atributos de la mascota
+  
+    // Estado para los atributos de la mascota
+ 
   const [affection, setAffection] = useState(10); 
   const [hungriness, setHungriness] = useState(50);
   const [cleanliness, setCleanliness] = useState(10);
@@ -24,13 +33,12 @@ function PantallaPrincipal(){
   const [showILoveYou, setShowILoveYou] = useState(false);
   const [cleaningMode, setCleaningMode] = useState(false);
 
-
-
-
-  // Para mostrar cursor como esponja
+   // Para mostrar cursor como esponja
   const handleCleaningMode = () => {
+    if(cleanliness<100){
       setCleaningMode(true);
       document.body.classList.add('cursor-sponge');
+    }
   };
 
   const handleCleaningDone = () => {
@@ -38,7 +46,32 @@ function PantallaPrincipal(){
       document.body.classList.remove('cursor-sponge');
   };
   
+
+  // Hook de React que te permite ejecutar efectos secundarios en componentes funcionales
   
+  useEffect(() => {
+    // Función de JavaScript que ejecuta repetidamente una función dada a intervalos establecidos (en milisegundos)
+    const intervalId = setInterval(() => {
+  
+      setHungriness((currentH) => {
+
+        let decreaseValue = 1;
+        if(currentH >= 50  && currentH < 90) {
+          decreaseValue = 2;
+        }
+        else if (currentH >= 0  && currentH < 50) {
+          decreaseValue = 3;
+        }
+      
+        return currentH > 0 ? currentH - decreaseValue : 0;
+      });
+
+    }, 1000 * 10); // decrementa cada 1 segundo IMPORTANTE: AUN SE DEBE ACLARAR CUANTOS SEGUNDOS ES LO OPTIMO EN UN ESCENARIO REAL
+
+    // Siempre limpiar intervalos (si no pueden aparecer varios intervalos que actuen sobre el componente y provoca situaciones no esperadas)
+    return () => clearInterval(intervalId);
+  }, []); // El array vacío asegura que el efecto se ejecute solo después del montaje
+
   useEffect(() => {
     // Función de JavaScript que ejecuta repetidamente una función dada a intervalos establecidos (en milisegundos)
     const intervalId = setInterval(() => {
@@ -55,7 +88,7 @@ function PantallaPrincipal(){
       
         return currentAffection > 0 ? currentAffection - decreaseValue : 0;
       });
-    }, 1000 * 10); // decrementa cada 20 segundo IMPORTANTE: AUN SE DEBE ACLARAR CUANTOS SEGUNDOS ES LO OPTIMO EN UN ESCENARIO REAL
+    }, 1000 * 30); // decrementa cada 20 segundo IMPORTANTE: AUN SE DEBE ACLARAR CUANTOS SEGUNDOS ES LO OPTIMO EN UN ESCENARIO REAL
 
     // Siempre limpiar intervalos (si no pueden aparecer varios intervalos que actuen sobre el componente y provoca situaciones no esperadas)
     return () => clearInterval(intervalId);
@@ -63,9 +96,7 @@ function PantallaPrincipal(){
 
 
   useEffect(() => {
-    console.log(cleanliness)
     if(cleanliness === 100) {
-      console.log("me voy")
       handleCleaningDone();
     }
   }, [cleanliness]);
@@ -76,12 +107,12 @@ function PantallaPrincipal(){
 
         return currentCleanliness > 0 ? currentCleanliness - 1 : 0;
       });
-    }, 1000 * 5); 
+    }, 1000 * 30); 
     return () => clearInterval(intervalId);
   }, []);
 
 
- 
+
 
   // Funciones para cambiar el estado
   const increaseAffection = () => {
@@ -100,43 +131,133 @@ function PantallaPrincipal(){
     }
   };
 
-  return( 
-        <div className="App">
-          <Header 
-          petName={petName}
-          affection={affection}
-          hungriness={hungriness}
-          cleanliness={cleanliness}
-          />
 
-          <Pet 
+  function decreaseHungriness(ptos){
+    let value = hungriness + ptos;
+    if (value > 100) {
+        value = 100;
+    }
+    setHungriness(value);
+    console.log(hungriness);
+  }
+
+
+  
+//rebeca working
+  const [isDecoOpen, setIsDecoOpen] = useState(false);
+  const closeDeco = () => {
+      setIsDecoOpen(false);
+  };
+
+  const [isTiendaOpen, setIsTiendaOpen] = useState(false);
+  const closeTienda = () => {
+      setIsTiendaOpen(false);
+  };
+
+  const[fondoImage,setFondoImage] = useState(fondobasico2)
+  const cambioFondo=(imageDeseada)=>{
+      setFondoImage(imageDeseada);
+  };
+  const [isFoodInventoryOpen, setFoodInventoyOpen] = useState(false);
+  const closeInventory = () => {
+      setShowFood(false);
+      setComidaSelected("");
+      setFoodInventoyOpen(false);
+  };
+
+  const [showFood, setShowFood] = useState(false);
+;
+
+  const[comidaSelected, setComidaSelected]=useState("")
+    const seleccionarFood =(event)=>{
+        setComidaSelected(event.target.src);
+        decreaseHungriness(parseInt(event.target.getAttribute('data-puntos')));
+        const id = parseInt(event.target.getAttribute('data-id'));
+        new Audio(comiendo).play();
+        setProducts(products.map(producto => producto.id === id ? { ...producto, cantidad: producto.cantidad-1} : producto));
+        setShowFood(true);
+    };
+
+
+
+  
+  const [products, setProducts] = useState([
+        { id: 1, imagen: fresa, nombre:'fresa', precio: 5, cantidad:3, puntos:30, cantidadCarro:0},
+        { id: 2, imagen: pera, nombre:'pera', precio: 3, cantidad:3, puntos:10, cantidadCarro:0},
+        { id: 3, imagen: limon, nombre:'limon', precio: 2, cantidad:3, puntos:5, cantidadCarro:0}
+  ]);
+
+  //<BackgroundMusic  src="/sounds/comiendo.mp3"/> 
+  return( <>
+        <div className="App">
+        
+        <Fondo image= {fondoImage}/>
+        
+          
+        <Header 
+        petName={petName}
+        affection={affection}
+        hungriness={hungriness}
+        cleanliness={cleanliness}
+        />
+
+        <Pet 
           image={petImage} 
           cleaningMode={cleaningMode}
           cleanliness={cleanliness}
           setCleanliness={setCleanliness}
           showHeart={showHeart}
           increaseAffection={increaseAffection}
-          />
+        />
 
-          <Footer
-          onActivateHeart={setShowHeart}
-          onCleaningMode={handleCleaningMode}
-          onHandleCleaningDone={handleCleaningDone}
-          />
+        <Footer
+         onActivateHeart={setShowHeart}
+         onCleaningMode={handleCleaningMode}
+         onHandleCleaningDone={handleCleaningDone}
 
-          
+         openDecoF={setIsDecoOpen}
+         openInventary={setFoodInventoyOpen}
+         openTiendita={setIsTiendaOpen}
+         arrayProductos={products}
+         modificarArray={setProducts}
+         
+        />
 
-          <div className="speech-balloon-container">
+       
+        <div className="food-container">
+          { showFood && (<img className="food-icon" src={comidaSelected} alt="food"></img> 
+          )}
+        </div>
+        <div className="food-message">
+          {showFood && (<h1>Ñam!</h1>)}
+        </div>
+        <div className="speech-balloon-container">
             {showILoveYou && (<img className="speech-balloon-icon" src={love_speech_balloon} alt="i love you speech balloon"></img> 
             )}
-          </div>
-
-
-          
-          
-
         </div>
-    
+        
+        
+          <MenuDecoracion isOpen={isDecoOpen} 
+            onClose={closeDeco} 
+            img_func={cambioFondo}
+            imgActual={fondoImage}/>
+          
+          <InventarioComida isOpen={isFoodInventoryOpen} 
+            onClose={closeInventory}
+            seleccionarComida={seleccionarFood} 
+            showComida={setShowFood}
+            arrayProductos={products}
+     
+            />
+
+          <Tienda isOpen={isTiendaOpen}
+          onClose={closeTienda} 
+          arrayProductos={products}
+          modificarArray={setProducts}
+          />
+       
+        </div>
+    </>
     );
 }
 export default PantallaPrincipal;

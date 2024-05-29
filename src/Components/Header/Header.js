@@ -34,7 +34,7 @@ function Header({petName,affection,hungriness,cleanliness}) {
         <StatusBar logo={foodLogo} value={hungriness} max={100} color={colorHandler(hungriness)} />
         <StatusBar logo={cleanLogo  } value={cleanliness} max={100} color={colorHandler(cleanliness)} />
         
-        <button className="help-button" onClick={togglePopup}>?</button>
+        <button aria-label="Botón de ayuda" className="help-button" onClick={togglePopup}>?</button>
         {showPopup && <Ayuda Cerrar={togglePopup}/>}
         <img className="icon" src={coin}></img>
         <h2>total: {money}</h2>

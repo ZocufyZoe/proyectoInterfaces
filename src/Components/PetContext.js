@@ -15,9 +15,10 @@ export const PetProvider = ({ children }) => {
   const [petName, setPetName]   = useState('');
   const [petImage, setPetImage] = useState(regularPet);
   const [money, setMoney]       = useState(100);
+  const [showHeart, setShowHeart] = useState(false);
 
   return (
-    <PetContext.Provider value={{ petName, setPetName, petImage, setPetImage, money, setMoney}}>
+    <PetContext.Provider value={{ petName, setPetName, petImage, setPetImage, money, setMoney, showHeart, setShowHeart}}>
       {children}
     </PetContext.Provider>
   );

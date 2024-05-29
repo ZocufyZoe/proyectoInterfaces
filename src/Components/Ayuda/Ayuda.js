@@ -11,7 +11,7 @@ function Ayuda({Cerrar}) {
           <div className="texto">
             <h2>¿Necesitas ayuda?</h2>
           </div>
-          <button className="volver" onClick={Cerrar}>
+          <button aria-label="Cerrar ventana de ayuda" className="volver" onClick={Cerrar}>
             <img className="foto" src={VolverIcon}></img>
           </button>
         </div>

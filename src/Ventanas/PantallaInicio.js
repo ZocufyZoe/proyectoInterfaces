@@ -4,9 +4,6 @@ import Button from 'react-bootstrap/Button';
 import Logo from "../images/logo.png";
 import FondoInicio from "../images/FondoInicio.png";
 import './fondoPantallaInicio.css';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 var sectionStyle = {
     backgroundImage: FondoInicio
 }

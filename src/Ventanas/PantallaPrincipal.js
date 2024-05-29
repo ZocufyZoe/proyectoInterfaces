@@ -225,7 +225,7 @@ function PantallaPrincipal(){
 
        
         <div className="food-container">
-          { showFood && (<img className="food-icon" src={comidaSelected} alt="food"></img> 
+          { showFood && (<img className="food-icon" src={comidaSelected} alt="comida"></img> 
           )}
         </div>
         <div className="food-message">

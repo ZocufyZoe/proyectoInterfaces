@@ -2,6 +2,8 @@ import React from 'react';
 import { useState } from "react";
 import { useEffect } from "react";
 import './Flechitas.css';
+import SubirIcon from "../../images/subir.png";
+import BajarIcon from "../../images/bajar.png";
 
 
 function Flechitas({costeTotal, cambiarCosteTotal, productos, modificarProductos, precio, idProducto, cantidadProvisional}) {
@@ -38,7 +40,7 @@ function Flechitas({costeTotal, cambiarCosteTotal, productos, modificarProductos
                   onClick={handleDecrease}
                   disabled={value <= minValue}
                 >
-                -
+                  <img className="foto" src={BajarIcon}/>
                 </button>
 
                 <input
@@ -54,7 +56,7 @@ function Flechitas({costeTotal, cambiarCosteTotal, productos, modificarProductos
                   onClick={handleIncrease}
                   disabled={value >= maxValue}
                 >
-                +
+                  <img className="foto" src={SubirIcon} alt="cerrar" />
                 </button>
         </div>
                

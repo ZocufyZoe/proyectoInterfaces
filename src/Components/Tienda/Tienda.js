@@ -8,6 +8,7 @@ import Flechitas from '../Flechitas/Flechitas';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ConfirmacionTienda from '../ConfirmacionTienda/ConfirmacionTienda';
+import VolverIcon from "../../images/cerrar.png";
 
 
 
@@ -16,13 +17,13 @@ import ConfirmacionTienda from '../ConfirmacionTienda/ConfirmacionTienda';
           modificarArray={setProducts}
 
 */
-const Tienda = ({ isOpen, onClose, arrayProductos, modificarArray}) => {
-    
-    const [isConfirmOpen, setIsConfirmOpen] = useState(false);
-    const[totalCost, setTotalCost]=useState(0);
+const Tienda = ({ isOpen, onClose, arrayProductos, modificarArray }) => {
+
+  const [isConfirmOpen, setIsConfirmOpen] = useState(false);
+  const [totalCost, setTotalCost] = useState(0);
 
 
-    //abre segundo modal
+  //abre segundo modal
   const handleOpenConfirm = () => {
     setIsConfirmOpen(true);
   };
@@ -30,7 +31,7 @@ const Tienda = ({ isOpen, onClose, arrayProductos, modificarArray}) => {
   //cierra segundo modal, vuelve tienda in cambiar nada
   const handleCloseConfirm = () => {
     setIsConfirmOpen(false);
-    
+
   };
 
   //cierra segundo modal, ha aceptado y vuelve pag principal
@@ -38,82 +39,118 @@ const Tienda = ({ isOpen, onClose, arrayProductos, modificarArray}) => {
     setIsConfirmOpen(false);
     toast.success('¡Compra realizada con éxito!');
     handleCloseTienda();
-    
+
   };
 
   //Te vas de la tienda pulsando la X
   const handleCloseTienda = () => {
     onClose();
-    setTotalCost(0); 
-   
-  }   
+    setTotalCost(0);
 
-    const {money} = usePet();
+  }
 
-    return (
-        <Modal 
-            className="modal-container-tienda"
-            overlayClassName="modal-overlay-tienda"
-            isOpen={isOpen}
-            onRequestClose={onClose}>
-            <div className="modal-content">
-                <h1>Tienda</h1>
-                <div className='dinero-tienda'>
-                    <img className="icon" src={coin}></img>
-                    <h2>total: {money}</h2>
-                    
-                </div>
+  const { money } = usePet();
 
+  const chunkArray = (array, size) => {
+    const chunkedArr = [];
+    for (let i = 0; i < array.length; i += size) {
+      chunkedArr.push(array.slice(i, i + size));
+    }
+    return chunkedArr;
+  };
 
-                <div className='articulos'>
-                    <table>
-                        
-                        {arrayProductos.map(producto=>(
-                          <td>
-                            <div className='content-articulo'>
-                            <img className='img-tienda' src={producto.imagen} alt={producto.nombre} />
-                            <p>Precio unidad: {producto.precio} <img className="icon-p" src={coin}/></p>
+  const productRows = chunkArray(arrayProductos, 3);
 
-                            <Flechitas 
-                                className='flechita'
-                                costeTotal={totalCost}
-                                cambiarCosteTotal={setTotalCost}
-                                productos={arrayProductos}
-                                modificarProductos={modificarArray}
-                                precio={producto.precio}
-                                idProducto={producto.id}
-                                cantidadProvisional={producto.cantidadCarro} />
-                            </div>
-                          </td>
-                        ))}
-                        
-                    </table>
+  return (
+    <Modal
+      className="modal-container-tienda"
+      overlayClassName="modal-overlay-tienda"
+      isOpen={isOpen}
+      onRequestClose={onClose}>
 
-                </div>
-                
-               
-                <div className='costeTotal-tienda'>
-                    <img className="icon" src={coin}></img>
-                    <h2>Coste total: {totalCost}</h2>
+      <div className="container-fluid">
+      <div className="row-1">
+          <div className="col">
+            <h1 className="titulo-tienda">Tienda</h1>
+            <button type="button" className='volver' onClick={handleCloseTienda}>
+              <img className="foto" src={VolverIcon} alt="cerrar" />
+            </button>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-8">
+            <div className='scrollable'>
+              {productRows.map((row, rowIndex) => (
+                <tr key={rowIndex} className='pantallaTienda'>
+                  {row.map(producto => (
+                    <td key={producto.id}>
+                      <div className='content-articulo'>
+                        <img className='img-tienda' src={producto.imagen} alt={producto.nombre} />
+                        <p>Precio unidad: {producto.precio} <img className="icon-p" src={coin} alt="coin" /></p>
+                        <Flechitas
+                          className='flechita'
+                          costeTotal={totalCost}
+                          cambiarCosteTotal={setTotalCost}
+                          productos={arrayProductos}
+                          modificarProductos={modificarArray}
+                          precio={producto.precio}
+                          idProducto={producto.id}
+                          cantidadProvisional={producto.cantidadCarro}
+                        />
+                      </div>
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </div>
 
-                </div>
-                <button onClick={handleOpenConfirm} className='button-tienda'>Comprar</button>
-
-                <button className='cerrar' onClick={handleCloseTienda}>X</button>
-
-                <ConfirmacionTienda
-                    isOpen={isConfirmOpen}
-                    onClose={handleCloseConfirm}
-                    onAccept={handleAcceptConfirm}
-                    costeCompra={totalCost}
-                    productos={arrayProductos}
-                    modificarProductos={modificarArray}
-
-                />
+          </div>
+          <div className="col-md-4">
+            <div className="row">
+              <div className='dinero-tienda'>
+                <h2>Total: {money}</h2> <img className="icon" src={coin} alt="coin" />
+              </div>
 
             </div>
-        </Modal>
-    );
+            <div className="row">
+              <div className='costeTotal-tienda'>
+                <h2>Coste total: {totalCost}</h2> <img className="icon" src={coin} alt="coin" />
+
+              </div>
+            </div>
+            <div className="row">
+              <td colSpan="3" className='button-celda'>
+                <button onClick={handleOpenConfirm} className='button-tienda'>Comprar</button>
+              </td>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <ConfirmacionTienda
+        isOpen={isConfirmOpen}
+        onClose={handleCloseConfirm}
+        onAccept={handleAcceptConfirm}
+        costeCompra={totalCost}
+        productos={arrayProductos}
+        modificarProductos={modificarArray}
+
+      />
+    </Modal>
+  );
 };
 
 export default Tienda;

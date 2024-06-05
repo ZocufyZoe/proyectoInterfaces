@@ -184,7 +184,13 @@ function PantallaPrincipal(){
   const [products, setProducts] = useState([
         { id: 1, imagen: fresa, nombre:'fresa', precio: 5, cantidad:3, puntos:30, cantidadCarro:0},
         { id: 2, imagen: pera, nombre:'pera', precio: 3, cantidad:3, puntos:10, cantidadCarro:0},
-        { id: 3, imagen: limon, nombre:'limon', precio: 2, cantidad:3, puntos:5, cantidadCarro:0}
+        { id: 3, imagen: limon, nombre:'limon', precio: 2, cantidad:3, puntos:5, cantidadCarro:0},
+        { id: 4, imagen: fresa, nombre:'aaaa', precio: 5, cantidad:0, puntos:30, cantidadCarro:0},
+        { id: 5, imagen: pera, nombre:'aaaa', precio: 3, cantidad:0, puntos:10, cantidadCarro:0},
+        { id: 6, imagen: limon, nombre:'a', precio: 2, cantidad:0, puntos:5, cantidadCarro:0},
+        { id: 7, imagen: fresa, nombre:'aaaa', precio: 5, cantidad:0, puntos:30, cantidadCarro:0},
+        { id: 8, imagen: pera, nombre:'aaaa', precio: 3, cantidad:0, puntos:10, cantidadCarro:0},
+        { id: 9, imagen: limon, nombre:'a', precio: 2, cantidad:0, puntos:5, cantidadCarro:0}
   ]);
 
   //<BackgroundMusic  src="/sounds/comiendo.mp3"/> 

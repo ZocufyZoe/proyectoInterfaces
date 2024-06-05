@@ -20,15 +20,13 @@
      border-radius: 20px;
      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional: Add box shadow for depth */
      z-index: 1001; /* Ensure the modal is above the overlay */
-     overflow-y: auto; /* Enable vertical scrolling */
+     overflow-x: auto; /* Enable vertical scrolling */
      padding-right: 15px;
 }    
 
-.cerrar{
-    position: absolute;
-    top: 0;
-    right: 0;
-    width:30px;
+.cerrar {
+    background: transparent;
+    border: 0;
 }
 
 .modal-content {
@@ -36,9 +34,17 @@
 }
 
 .lista-comida{
-    width: 5%; /* Adjust as needed */
-    height:  auto; /* Adjust as needed */
+    max-width: 100px;
+    height: 100px;
+    margin-bottom: 5px;
+    
     cursor: pointer;
+}
+
+.onjeto{
+    margin-left: 10px;
+    align-items: center;
+    text-align: center;
 }
 
 ul {
@@ -56,3 +62,13 @@ li {
     color: white; 
     cursor: pointer;
   }
+
+.lista{
+    display: flex;
+    align-items: center;
+}
+
+.foto{
+    height: 30px;
+    width: 30px;
+}

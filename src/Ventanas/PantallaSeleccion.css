@@ -1,106 +1,52 @@
-.container {
-    display: flex;
-    justify-content: center; /* Horizontal centering */
-    align-items: center; /* Vertical centering */
-    /* You can add other styles as needed */
-    height: 100vh; /* Optional: adjust the height as needed */
+.carousel-slide img {
+  max-width: 100%;
+  height: auto;
 }
 
-.slider {
-    position: relative;
-    left: 7%;
-    width: 500px;
-    height: 300px;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.select-pou-text {
-  text-align: center;
-}
-
-.confirm {
-    position: absolute;
-    top: 350px;
-    left: 50%;
-    z-index: 1;
-    transform: translateX(-50%); /* Centra el elemento horizontalmente */
-    width: 500px;
-    display: flex;
-    justify-content: center; /* Esto centrarÃ¡ horizontalmente los elementos dentro del contenedor */
-    margin-top: 20px; 
-}
-
-.container-images {
-    
-    position: relative;
-    text-align: center; /* Alinea los elementos horizontalmente en el centro */
-  }
-  
-  .item {
-    left: 25%;
-  }
-
-  .carousel-indicators {
-    position: absolute;
-    top: 250px;
-  }
-
+@media (max-width: 768px) {
   .card-custom {
-    background: linear-gradient(to bottom, #f083b9, #f5c9e0);
-    border-radius: 30px;
-    border: 15px solid white;
+    padding: 2rem;
+  }
+
+  .slider {
+    padding: 1rem;
+  }
+
+  .confirm {
+    flex-direction: column;
+  }
+
+  .confirm button {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
 }
 
-.botonDegradadoNombre {
-    background: linear-gradient(to bottom, #f083b9, #f5c9e0);
-    border: none;
-    border-color: white;
-    color: white;
-    padding: 10px 20px;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    border-radius: 20px;
-    border: 5px solid white;
-    place-items: center
-
+@media (min-width: 769px) {
+  .confirm {
+    display: flex;
+    justify-content: center;
+  }
 }
 
-.botonDegradadoNombre:hover {
-    background: linear-gradient(to bottom, #f083b9, #f5c9e0);
-    border-radius: 20px;
-    border: 5px solid white;
-    font-size: 21.5px;
-    place-items: center
+/* Estilos personalizados para los botones de navegación del carrusel */
+.slick-prev,
+.slick-next {
+  width: 50px; /* Ajusta este valor al tamaño deseado */
+  height: 50px; /* Ajusta este valor al tamaño deseado */
+  z-index: 1; /* Asegúrate de que los botones estén en la capa superior */
 }
 
-.select-pou-text {
-  font-family: "Brush Script MT", cursive;
-  font-size: 3.5rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  color: #a30041;
+.slick-prev::before,
+.slick-next::before {
+  font-size: 40px; /* Ajusta este valor al tamaño deseado del ícono */
 }
 
-.botonDegradadoNombre {
-  background: linear-gradient(to bottom, #f083b9, #f5c9e0);
-  border: none;
-  border-color: white;
-  color: white;
-  padding: 10px 20px;
-  font-size: 20px;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  border-radius: 20px;
-  border: 5px solid white;
-
+/* Opcional: Ajustar la posición de los botones si es necesario */
+.slick-prev {
+  left: -60px; /* Ajusta este valor según sea necesario */
 }
 
-.botonDegradadoNombre:hover {
-  background: linear-gradient(to bottom, #f083b9, #f5c9e0);
-  border-radius: 20px;
-  border: 5px solid white;
-  font-size: 21.5px;
+.slick-next {
+  right: -60px; /* Ajusta este valor según sea necesario */
 }

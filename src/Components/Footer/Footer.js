@@ -38,7 +38,7 @@ function Footer({ onActivateHeart, onCleaningMode, onHandleCleaningDone,
           </Tooltip>
         }
       >
-        <Button variant="secondary" onClick={afectoHandler} aria-describedby="tooltip-afecto">Afecto</Button>
+        <Button tabIndex="0" variant="secondary" onClick={afectoHandler} aria-describedby="tooltip-afecto">Afecto</Button>
       </OverlayTrigger>
 
       <OverlayTrigger
@@ -50,7 +50,7 @@ function Footer({ onActivateHeart, onCleaningMode, onHandleCleaningDone,
           </Tooltip>
         }
       >
-        <Button variant="secondary" onClick={() => openInventary(true)} aria-describedby="tooltip-comida">Comida</Button>
+        <Button tabIndex="0" variant="secondary" onClick={() => openInventary(true)} aria-describedby="tooltip-comida">Comida</Button>
       </OverlayTrigger>
 
       <OverlayTrigger
@@ -62,7 +62,7 @@ function Footer({ onActivateHeart, onCleaningMode, onHandleCleaningDone,
           </Tooltip>
         }
       >
-        <Button variant="secondary" onClick={cleaningHandler} aria-describedby="tooltip-limpieza">Limpieza</Button>
+        <Button tabIndex="0" variant="secondary" onClick={cleaningHandler} aria-describedby="tooltip-limpieza">Limpieza</Button>
       </OverlayTrigger>
 
       <OverlayTrigger
@@ -74,8 +74,8 @@ function Footer({ onActivateHeart, onCleaningMode, onHandleCleaningDone,
           </Tooltip>
         }
       >
-        <Link to="/game">
-          <Button variant="secondary" aria-describedby="tooltip-juegos">Juegos</Button>
+        <Link to="/game" tabIndex="-1">
+          <Button tabIndex="0" variant="secondary" aria-describedby="tooltip-juegos">Juegos</Button>
         </Link>
       </OverlayTrigger>
 
@@ -86,21 +86,23 @@ function Footer({ onActivateHeart, onCleaningMode, onHandleCleaningDone,
           <Tooltip id="tooltip-tienda">
             Compra comida para tu mascota.
           </Tooltip>
+          
         }
-        show={showTooltip}
       >
-        <Button
-          variant="secondary"
-          onClick={tiendaHandler}
-          onMouseEnter={() => setShowTooltip(true)}
-          onMouseLeave={() => setShowTooltip(false)}
-          aria-describedby="tooltip-tienda"
-        >
-          Tienda
-        </Button>
+        <Button tabIndex="0" variant="secondary" onClick={tiendaHandler} onMouseEnter={() => setShowTooltip(true)} onMouseLeave={() => setShowTooltip(false)} aria-describedby="tooltip-tienda">Tienda</Button>
       </OverlayTrigger>
 
-      <button onClick={() => openDecoF(true)}>Decoración</button>
+      <OverlayTrigger
+        key="top"
+        placement="top"
+        overlay={
+          <Tooltip id="tooltip-deco">
+            Decora el fondo donde se situará tu mascota.
+          </Tooltip>
+        }
+      >
+        <Button tabIndex="0" variant="secondary" onClick={() => openDecoF(true)} aria-describedby="tooltip-comida">Decoración</Button>
+      </OverlayTrigger>
     </div>
   );
 }

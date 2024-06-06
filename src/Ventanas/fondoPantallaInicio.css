@@ -28,3 +28,19 @@ body {
 .colorTextoHomepage {
     color: pink;
 }
+
+.titulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+    width: 100%;
+    height: auto;
+    text-align: center; /* Asegúrate de que el texto esté centrado */
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}

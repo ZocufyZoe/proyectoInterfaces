@@ -10,10 +10,10 @@ var sectionStyle = {
 
 function PantallaInicio() {
     return (
-        <>
-            <div class="d-flex align-items-center flex-column  img-fluid pt-5 mt-5">
-                <img src={Logo} width={650} height={175} alt="" />
-                <h3 class="colorTextoHomepage"><strog></strog></h3>
+        <> {/* d-flex align-items-center flex-column  img-fluid pt-5 mt-5 */}
+            <div className="container titulo text-center">
+                <img src={Logo} className="img-fluid" alt="Logo" />
+                <h3 className="colorTextoHomepage"><strong></strong></h3>
             </div>
 
 

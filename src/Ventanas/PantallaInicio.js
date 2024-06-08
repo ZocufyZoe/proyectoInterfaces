@@ -10,26 +10,18 @@ var sectionStyle = {
 
 function PantallaInicio() {
     return (
-        <> {/* d-flex align-items-center flex-column  img-fluid pt-5 mt-5 */}
-            <div className="container titulo text-center">
+        <div className="container d-flex flex-column justify-content-center align-items-center vh-100">
+            <div className="titulo text-center">
                 <img src={Logo} className="img-fluid" alt="Logo" />
                 <h3 className="colorTextoHomepage"><strong></strong></h3>
             </div>
-
-
-
-
-            <div className="d-flex justify-content-center align-items-center vh-100">
-                <div > {/* Contenedor para el botón */}
-                    <Link to="/nombre">
-                        <button className="botonDegradado"> PULSA PARA COMENZAR</button>
-                    </Link>
-                </div>
+            <div> {/* Contenedor para el botón */}
+                <Link to="/nombre">
+                    <button className="botonDegradado">PULSA PARA COMENZAR</button>
+                </Link>
             </div>
-
-
-
-        </>
+        </div>
     );
 }
+
 export default PantallaInicio;

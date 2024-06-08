@@ -5,6 +5,15 @@
     color: #a30041;
 }
 
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15%;
+}
+
 .card-custom {
     background: linear-gradient(to bottom, #f083b9, #f5c9e0);
     border-radius: 30px;
@@ -31,4 +40,24 @@
     border-radius: 20px;
     border: 5px solid white;
     font-size: 21.5px;
+}
+
+.tituloNombre {
+    font-family: "Brush Script MT", cursive;
+    font-size: 8vw; /* Tamanho relativo a la anchura del viewport */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: #a30041;
+}
+
+/* Media Queries para ajustar el tamaño de la fuente en diferentes tamaños de pantalla */
+@media (min-width: 768px) {
+    .tituloNombre {
+        font-size: 4vw; /* Ajustar para pantallas medianas */
+    }
+}
+
+@media (min-width: 1200px) {
+    .tituloNombre {
+        font-size: 3vw; /* Ajustar para pantallas grandes */
+    }
 }

@@ -21,6 +21,18 @@ import taco from '../images/taco.png';
 import drink from '../images/drink.png';
 import noodles from '../images/noodles.png';
 import tarta from '../images/tarta.png';
+import gomugomu from '../images/comida-images/gomugomu.png';
+import bubble from '../images/comida-images/bubble-tea.png';
+import burger from '../images/comida-images/burger.png';
+import cocktail from '../images/comida-images/cocktail.png';
+import cookie from '../images/comida-images/cookie.png';
+import cupcake from '../images/comida-images/cupcake.png';
+import icecream from '../images/comida-images/ice-cream.png';
+import chicken from '../images/comida-images/fried-chicken.png';
+import pizza from '../images/comida-images/pizza.png';
+import watermelon from '../images/comida-images/watermelon.png';
+import lasagne from '../images/comida-images/lasagne.png';
+
 import BackgroundMusic from "../Components/BackgroundMusic";
 import React, { useRef } from 'react';
 import muted from '../images/muted.png';
@@ -184,6 +196,7 @@ function PantallaPrincipal({ isMusicPlaying, toggleMusic }) {
     new Audio(comiendo).play();
     setProducts(products.map(producto => producto.id === id ? { ...producto, cantidad: producto.cantidad - 1 } : producto));
     setShowFood(true);
+    setTimeout(() => setShowFood(false), 2500);
   };
 
 
@@ -193,12 +206,23 @@ function PantallaPrincipal({ isMusicPlaying, toggleMusic }) {
     { id: 1, imagen: fresa, nombre: 'fresa', precio: 5, cantidad: 3, puntos: 30, cantidadCarro: 0 },
     { id: 2, imagen: pera, nombre: 'pera', precio: 3, cantidad: 3, puntos: 10, cantidadCarro: 0 },
     { id: 3, imagen: limon, nombre: 'limon', precio: 2, cantidad: 3, puntos: 5, cantidadCarro: 0 },
-    { id: 4, imagen: taco, nombre: 'taco', precio: 5, cantidad: 0, puntos: 20, cantidadCarro: 0 },
-    { id: 5, imagen: drink, nombre: 'drink', precio: 3, cantidad: 0, puntos: 5, cantidadCarro: 0 },
-    { id: 6, imagen: noodles, nombre: 'noodles', precio: 2, cantidad: 0, puntos: 10, cantidadCarro: 0 },
-    { id: 7, imagen: tarta, nombre: 'tarta', precio: 5, cantidad: 0, puntos: 20, cantidadCarro: 0 },
-    { id: 8, imagen: pera, nombre: 'aaaa', precio: 3, cantidad: 0, puntos: 15, cantidadCarro: 0 },
-    { id: 9, imagen: limon, nombre: 'a', precio: 2, cantidad: 0, puntos: 10, cantidadCarro: 0 }
+    { id: 4, imagen: taco, nombre: 'taco', precio: 6, cantidad: 0, puntos: 20, cantidadCarro: 0 },
+    { id: 5, imagen: drink, nombre: 'drink', precio: 1, cantidad: 0, puntos: 5, cantidadCarro: 0 },
+    { id: 6, imagen: noodles, nombre: 'noodles', precio: 4, cantidad: 0, puntos: 10, cantidadCarro: 0 },
+    { id: 7, imagen: tarta, nombre: 'tarta', precio: 10, cantidad: 0, puntos: 10, cantidadCarro: 0 },
+    { id: 8, imagen: gomugomu, nombre: 'gomugomu', precio: 100, cantidad: 0, puntos: 100, cantidadCarro: 0 },
+    { id: 9, imagen: bubble, nombre: 'bubble', precio: 2, cantidad: 0, puntos: 2, cantidadCarro: 0 },
+    { id: 10, imagen: burger, nombre: 'burger', precio: 5, cantidad: 0, puntos: 20, cantidadCarro: 0 },
+    { id: 11, imagen: cocktail, nombre: 'cocktail', precio: 8, cantidad: 0, puntos: 2, cantidadCarro: 0 },
+    { id: 12, imagen: cookie, nombre: 'cookie', precio: 2, cantidad: 0, puntos: 5, cantidadCarro: 0 },
+    { id: 13, imagen: cupcake, nombre: 'cupcake', precio: 5, cantidad: 0, puntos: 5, cantidadCarro: 0 },
+    { id: 14, imagen: icecream, nombre: 'icecream', precio: 7, cantidad: 0, puntos: 5, cantidadCarro: 0 },
+    { id: 15, imagen: chicken, nombre: 'chicken', precio: 4, cantidad: 0, puntos: 10, cantidadCarro: 0 },
+    { id: 16, imagen: pizza, nombre: 'pizza', precio: 5, cantidad: 0, puntos: 20, cantidadCarro: 0 },
+    { id: 17, imagen: watermelon, nombre: 'watermelon', precio: 4, cantidad: 0, puntos: 10, cantidadCarro: 0 },
+    { id: 18, imagen: lasagne, nombre: 'lasagne', precio: 6, cantidad: 0, puntos: 30, cantidadCarro: 0 }
+ 
+
   ]);
 
   //<BackgroundMusic  src="/sounds/comiendo.mp3"/> 
@@ -208,18 +232,15 @@ function PantallaPrincipal({ isMusicPlaying, toggleMusic }) {
 
       <Fondo image={fondoImage} />
 
-      <button onClick={toggleMusic} className="music-control-button">
-        <img className='musicaepica' 
-          src={isMusicPlaying ? volume : muted}
-          alt="Controlar música"                
-        />
-      </button>
 
       <Header
         petName={petName}
         affection={affection}
         hungriness={hungriness}
         cleanliness={cleanliness}
+        isMusicPlaying={isMusicPlaying}
+        toggleMusic={toggleMusic}
+        
       />
 
       <Pet

@@ -8,8 +8,10 @@ import cleanLogo from '../../images/cleaning-status-logo.png';
 import coin from '../../images/coin.png';
 import { usePet } from "../PetContext";
 import Button from 'react-bootstrap/Button';
+import muted from '../../images/muted.png';
+import volume from '../../images/volume.png';
 
-function Header({petName, affection, hungriness, cleanliness}) {
+function Header({petName, affection, hungriness, cleanliness,isMusicPlaying, toggleMusic}) {
   function colorHandler(affection) {
     if (affection < 30) return "red";
     if (affection < 70) return "orange";
@@ -52,6 +54,15 @@ function Header({petName, affection, hungriness, cleanliness}) {
           ?
         </Button>
         <Ayuda show={modalShow} onHide={() => setModalShow(false)} />
+      </>
+
+      <>
+      <button onClick={toggleMusic} className="music-control-button">
+        <img className='musicaepica' 
+          src={isMusicPlaying ? volume : muted}
+          alt="Controlar música"                
+        />
+      </button>
       </>
 
       <div>

@@ -10,7 +10,7 @@ const ConfirmacionTienda = ({ isOpen, onClose, onAccept, costeCompra, productos,
   const { money, setMoney } = usePet();
 
   const handleAceptarCompra = () => {
-    if ((money - costeCompra > 0)) {
+    if ((money - costeCompra >= 0)) {
       modificarProductos(productos.map(producto => ({ ...producto, cantidad: producto.cantidadCarro + producto.cantidad })));
       setMoney(money - costeCompra);
       toast.success('¡Compra realizada con éxito!');

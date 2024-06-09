@@ -45,11 +45,29 @@ const Footer = forwardRef(function Footer({
     onCleaningMode();
   }
 
-  function tiendaHandler() {
-    setShowTooltip(false);
-    modificarArray(arrayProductos.map(producto => ({ ...producto, cantidadCarro: 0 })));
+  function tiendaHandler(){
+    modificarArray(arrayProductos.map(producto => ( { ...producto, cantidadCarro: 0})));
     openTiendita(true);
+    onActivateHeart(false);
+    onHandleCleaningDone();
   }
+
+  function comidaHandler () {
+    openInventary(true);
+    onActivateHeart(false);
+    onHandleCleaningDone();
+ }
+
+ function decoracionHandler () {
+  openDecoF(true);
+  onActivateHeart(false);
+  onHandleCleaningDone();
+}
+
+function juegosHandler () {
+  onActivateHeart(false);
+  onHandleCleaningDone();
+}
 
   return (
     <div className="footer">
@@ -78,7 +96,7 @@ const Footer = forwardRef(function Footer({
                 </Tooltip>
               }
             >
-              <button className="botonDegradadoNombreA" onClick={() => openInventary(true)} aria-describedby="tooltip-comida">Comida</button>
+              <button className="botonDegradadoNombreA" onClick={comidaHandler} aria-describedby="tooltip-comida">Comida</button>
             </OverlayTrigger>
           </Col>
           <Col xs={6} sm={4} md={2} className="mb-2">
@@ -105,7 +123,7 @@ const Footer = forwardRef(function Footer({
               }
             >
               <Link to="/game" tabIndex={-1}>
-                <button className="botonDegradadoNombreA" aria-describedby="tooltip-juegos">Juegos</button>
+                <button className="botonDegradadoNombreA" aria-describedby="tooltip-juegos" onClick={juegosHandler}>Minijuego</button>
               </Link>
             </OverlayTrigger>
           </Col>
@@ -131,7 +149,7 @@ const Footer = forwardRef(function Footer({
             </OverlayTrigger>
           </Col>
           <Col xs={6} sm={4} md={2} className="mb-2">
-            <button className="botonDegradadoNombreA" onClick={() => openDecoF(true)}>Decoración</button>
+            <button className="botonDegradadoNombreA" onClick={decoracionHandler}>Decoración</button>
           </Col>
         </Row>
       </Container>

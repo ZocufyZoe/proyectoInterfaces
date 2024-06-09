@@ -71,19 +71,19 @@ function Ayuda({ show, onHide }) {
                     </td>
                   </tr>
                   <tr>
-                    <td className="texto" ><img className="barra" src={heartLogo} /></td>
+                    <td className="texto" ><img tabIndex={0} className="barra" src={heartLogo} alt="barra de vida"/></td>
                     <td tabIndex={0}>
                       <p>Muestra el nivel de felicidad de tu Pal</p>
                     </td>
                   </tr>
                   <tr>
-                    <td className="texto" ><img className="barra" src={foodLogo} /></td>
+                    <td className="texto" ><img tabIndex={0} className="barra" src={foodLogo} alt="barra de comida"/></td>
                     <td tabIndex={0}>
                       <p>Muestra el nivel de hambre de tu Pal</p>
                     </td>
                   </tr>
                   <tr>
-                    <td className="texto" ><img className="barra" src={cleanLogo} /></td>
+                    <td className="texto" ><img tabIndex={0} className="barra" src={cleanLogo} alt="barra de limpieza"/></td>
                     <td tabIndex={0}>
                       <p>Muestra el nivel de suciedad de tu Pal</p>
                     </td>

@@ -66,10 +66,8 @@
   }
 
 .scrollable {
-    max-height: 400px; /* Ajusta la altura máxima según tus necesidades */
     overflow-y: auto;
-    padding: 10px; /* Opcional: para añadir espacio alrededor del contenido */
-    
+    padding: 0px;
 }
 
 .col-md-8{
@@ -144,6 +142,9 @@
   
 }
 
-
-
-
+.tabletienda{
+  width: 100%; /* Ocupa el 100% del ancho del contenedor padre */
+  height: 100%; /* Ocupa el 100% de la altura del contenedor padre */
+  display: flex; /* Flexbox para que el hijo pueda estirarse */
+  align-items: stretch; /* Estira el contenido para que ocupe toda la altura */
+}

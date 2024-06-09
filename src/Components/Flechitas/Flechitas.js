@@ -54,7 +54,7 @@ function Flechitas({ costeTotal, cambiarCosteTotal, productos, modificarProducto
         readOnly
         aria-label={`Cantidad de ${nombreProducto}`}
       />
-
+      
       <button
         className="arrow-button"
         onClick={handleIncrease}

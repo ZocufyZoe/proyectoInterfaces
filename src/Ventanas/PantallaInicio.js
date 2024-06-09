@@ -13,7 +13,7 @@ var sectionStyle = {
 function PantallaInicio({ setPlayMusic }) {
     
     const handleButtonClick = () => {
-        setPlayMusic(true); // Activar la música cuando se haga clic en el botón
+        setPlayMusic(false); // Activar la música cuando se haga clic en el botón
     };
     return (
         <> {/* d-flex align-items-center flex-column  img-fluid pt-5 mt-5 */}

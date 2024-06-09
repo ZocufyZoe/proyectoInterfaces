@@ -63,8 +63,8 @@ const Tienda = ({ isOpen, onClose, arrayProductos, modificarArray }) => {
         <div className="row">
           <div className="col-md-8">
           <div className='scrollable'>
-  <table className="table">
-    <tbody>
+  <table className="tabletienda">
+    <tbody className='tbodytienda'>
       {productRows.map((row, rowIndex) => (
         <tr key={rowIndex} className='pantallaTienda'>
           {row.map(producto => (

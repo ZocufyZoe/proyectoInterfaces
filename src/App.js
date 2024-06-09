@@ -1,25 +1,34 @@
 import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import PantallaInicio from "./Ventanas/PantallaInicio";
 import PantallaNombre from "./Ventanas/PantallaNombre";
 import PantallaSeleccion from "./Ventanas/PantallaSeleccion";
 import PantallaPrincipal from "./Ventanas/PantallaPrincipal";
 import BackgroundMusic from "./Components/BackgroundMusic";
-import Game from "./Components/Game/Game";
 import { PetProvider } from "./Components/PetContext";
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-// <BackgroundMusic src="./sounds/comiendo.mp3" />
+import Game from "./Components/Game/Game";
+// <BackgroundMusic src="./sounds/comiendo.mp3" /> 
 
 function App() {
+  const [playMusic, setPlayMusic] = useState(false);
+
+  const toggleMusic = () => {
+    setPlayMusic(prevPlayMusic => !prevPlayMusic);
+  };
   return (
     <>
+
       <PetProvider>
+        <BackgroundMusic play={playMusic} />
         <Routes>
+
           <Route
             path="/"
             element={
               <>
-                <PantallaInicio />
+
+                <PantallaInicio setPlayMusic={setPlayMusic} />
+
               </>
             }
           />
@@ -27,7 +36,9 @@ function App() {
             path="/nombre"
             element={
               <>
-                <PantallaNombre />
+                <PantallaNombre
+                  isMusicPlaying={playMusic}
+                  toggleMusic={toggleMusic} />
               </>
             }
           />
@@ -36,7 +47,9 @@ function App() {
             path="/seleccion"
             element={
               <>
-                <PantallaSeleccion />
+                <PantallaSeleccion
+                  isMusicPlaying={playMusic}
+                  toggleMusic={toggleMusic} />
               </>
             }
           />
@@ -45,11 +58,12 @@ function App() {
             path="/principal"
             element={
               <>
-                <PantallaPrincipal />
+                <PantallaPrincipal
+                  isMusicPlaying={playMusic}
+                  toggleMusic={toggleMusic} />
               </>
             }
           />
-
           <Route
             path="/game"
             element={

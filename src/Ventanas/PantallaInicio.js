@@ -8,20 +8,34 @@ var sectionStyle = {
     backgroundImage: FondoInicio
 }
 
-function PantallaInicio() {
+
+
+function PantallaInicio({ setPlayMusic }) {
+    
+    const handleButtonClick = () => {
+        setPlayMusic(true); // Activar la música cuando se haga clic en el botón
+    };
     return (
-        <div className="containerNombre d-flex flex-column justify-content-center align-items-center vh-100">
-            <div className="titulo text-center">
+        <> {/* d-flex align-items-center flex-column  img-fluid pt-5 mt-5 */}
+            <div className="container titulo text-center">
                 <img src={Logo} className="img-fluid" alt="Logo" />
                 <h3 className="colorTextoHomepage"><strong></strong></h3>
             </div>
-            <div> {/* Contenedor para el botón */}
-                <Link to="/nombre">
-                    <button className="botonDegradado">PULSA PARA COMENZAR</button>
-                </Link>
+
+
+
+
+            <div className="d-flex justify-content-center align-items-center vh-100">
+                <div > {/* Contenedor para el botón */}
+                    <Link to="/nombre">
+                        <button className="botonDegradado" button onClick={handleButtonClick}> PULSA PARA COMENZAR</button>
+                    </Link>
+                </div>
             </div>
-        </div>
+
+
+
+        </>
     );
 }
-
 export default PantallaInicio;

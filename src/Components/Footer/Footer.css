@@ -1,24 +1,22 @@
+/* Footer.css */
 .footer {
-    margin-top: auto; /* Esto empujará tu footer hacia abajo */
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 50px; /* Espacio entre botones */
-    padding: 150px 0; /* Añade un poco de padding arriba y abajo del footer */
-  }
-  
-.footer button {
-    background-color: rgb(225, 148, 228);
-    color: black;
-    padding: 25px 25px;
-    font-size: x-large;
-    border-radius: 10px;
+  padding: 20px;
+  margin-top: 200px;
 }
 
-.footer button:hover {
-  background-color: rgb(255, 168, 248); /* Cambia el color de fondo al pasar el cursor */
-  transform: scale(1.1); 
-  color: white; 
+.botonDegradadoNombreA {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(to bottom, #f083b9, #f5c9e0);
+  color: white;
+  border-color: white;
+  font-weight: bold;
+  text-align: center;
   cursor: pointer;
+  border-radius: 5px;
 }
 
+.botonDegradadoNombreA:hover {
+  background: linear-gradient(to bottom, #f083b9, #f5c9e0);
+  border-radius: 20px;
+}

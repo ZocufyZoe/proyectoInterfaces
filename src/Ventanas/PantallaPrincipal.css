@@ -53,6 +53,46 @@
     cursor: url('../images/cursor-sponge.png') 50 50, auto;
 }
 
+.music-control-button{
+
+  padding: 10px;
+  background: linear-gradient(to bottom, #f083b9, #f5c9e0);
+  color: white;
+  border-color: white;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.musicaepica{
+    width: 50px;
+    height: 50px;
+    }
+
+@media (max-width: 500px) {
+    .music-control-button{
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .musicaepica{
+        width: 20px;
+        height: 20px;
+    }
+    
+
+
+}
+
+
+
+
+
+
+
 /**/
 .food-container{
     position: absolute;

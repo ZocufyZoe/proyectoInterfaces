@@ -28,7 +28,7 @@ function MyVerticallyCenteredModal(props) {
         <Modal.Footer>
             <Button variant="secondary" onClick={props.onHide}>Volver</Button>
             <Link to="/principal">
-                <Button style={{background: 'linear-gradient(to bottom, #f083b9, #f5c9e0)'}} size="lg" variant="success"> VAMO PALANTEEEEEEEE  </Button>
+                <Button style={{background: 'linear-gradient(to bottom, #f083b9, #f5c9e0)'}} size="lg" variant="success">Confirmar selección</Button>
             </Link>
         </Modal.Footer>
         </Modal>

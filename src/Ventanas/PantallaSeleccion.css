@@ -29,24 +29,26 @@
   }
 }
 
-/* Estilos personalizados para los botones de navegación del carrusel */
-.slick-prev,
-.slick-next {
-  width: 50px; /* Ajusta este valor al tamaño deseado */
-  height: 50px; /* Ajusta este valor al tamaño deseado */
+/* Estilos personalizados para los botones de navegación del carrusel específico */
+.custom-carousel .slick-arrow.slick-prev,
+.custom-carousel .slick-arrow.slick-next {
+  width: 50px; /* Ancho de la flecha */
+  height: 50px; /* Altura de la flecha */
   z-index: 1; /* Asegúrate de que los botones estén en la capa superior */
+  background-size: cover; /* Ajusta la imagen para cubrir completamente el área */
+  background-repeat: no-repeat; /* Evita la repetición de la imagen de fondo */
 }
 
-.slick-prev::before,
-.slick-next::before {
-  font-size: 40px; /* Ajusta este valor al tamaño deseado del ícono */
+.custom-carousel .slick-arrow.slick-prev::before,
+.custom-carousel .slick-arrow.slick-next::before {
+  font-size: 60px; /* Ajusta este valor al tamaño deseado del ícono */
 }
 
 /* Opcional: Ajustar la posición de los botones si es necesario */
-.slick-prev {
+.custom-carousel .slick-arrow.slick-prev {
   left: -60px; /* Ajusta este valor según sea necesario */
 }
 
-.slick-next {
+.custom-carousel .slick-arrow.slick-next {
   right: -60px; /* Ajusta este valor según sea necesario */
 }

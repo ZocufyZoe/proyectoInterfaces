@@ -63,13 +63,13 @@ const Tienda = ({ isOpen, onClose, arrayProductos, modificarArray }) => {
 
   return (
     <Modal
-      className="modal-container-tienda"
+      className="tienda-container"
       overlayClassName="modal-overlay-tienda"
       isOpen={isOpen}
       onRequestClose={onClose}>
 
       <div className="container-fluid">
-      <div className="row-1">
+        <div className="row-1">
           <div className="col">
             <h1 className="titulo-tienda">Tienda</h1>
             <button type="button" className='volver' onClick={handleCloseTienda}>
@@ -126,18 +126,6 @@ const Tienda = ({ isOpen, onClose, arrayProductos, modificarArray }) => {
           </div>
         </div>
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
       <ConfirmacionTienda

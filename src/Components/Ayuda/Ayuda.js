@@ -1,30 +1,29 @@
 import React from "react";
-import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
 import "./Ayuda.css"; // Asegúrate de tener el archivo de estilos para Ayuda
 import VolverIcon from "../../images/cerrar.png";
+import foodLogo from '../../images/food-icon-status-bar.png'
+import heartLogo from '../../images/heart-status-logo.png'
+import cleanLogo from '../../images/cleaning-status-logo.png'
 
 function Ayuda({ show, onHide }) {
   return (
     <Modal show={show} onHide={onHide} aria-labelledby="contained-modal-title-vcenter">
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          ¿Necesitas ayuda?
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <Container>
-          <Row className="justify-content-center">
-            <Col md={12} className="text-center">
-              <h2>¿Necesitas ayuda?</h2>
+      <Modal.Header >
+        <Row className="justify-content-center">
+          <Col>
+              <h1>¿Necesitas ayuda?</h1>
               <button aria-label="Cerrar ventana de ayuda" className="volver" onClick={onHide} tabIndex={0}>
                 <img className="foto" src={VolverIcon} alt="Cerrar" />
               </button>
-            </Col>
+          </Col>
           </Row>
+      </Modal.Header>
+      <Modal.Body className="modalbodyrosa">
+        <Container>
           <Row>
             <Col md={12}>
               <table className="tablaayuda">
@@ -38,13 +37,13 @@ function Ayuda({ show, onHide }) {
                   <tr>
                     <td className="texto" tabIndex={0}>Afecto</td>
                     <td tabIndex={0}>
-                      <p>Pulsa este boton para poder dar cariño a tu pal, clica en el corazon para aumentar su nivel de felicidad</p>
+                      <p>Pulsa este boton para dar cariño a tu pal, clica en el corazon para aumentar su nivel de felicidad</p>
                     </td>
                   </tr>
                   <tr>
                     <td className="texto" tabIndex={0}>Comida</td>
                     <td tabIndex={0}>
-                      <p>Pulsa este boton para desplegar el inventario de comida de tu pal, clica un plato y arrastralo hasta tu Pal para alimentarlo</p>
+                      <p>Pulsa este boton para desplegar el inventario de comida de tu pal, clica un plato para alimentarlo</p>
                     </td>
                   </tr>
                   <tr>
@@ -56,7 +55,7 @@ function Ayuda({ show, onHide }) {
                   <tr>
                     <td className="texto" tabIndex={0}>Juegos</td>
                     <td tabIndex={0}>
-                      <p>Pulsa este boton para jugar con tu Pal, selecciona un juego y disfruta</p>
+                      <p>Pulsa este boton para jugar con tu Pal</p>
                     </td>
                   </tr>
                   <tr>
@@ -68,19 +67,35 @@ function Ayuda({ show, onHide }) {
                   <tr>
                     <td className="texto" tabIndex={0}>Decoracion</td>
                     <td tabIndex={0}>
-                      <p>Pulsa este boton para cambiar la ubicacion de tu pal, selecciona una decoracion</p>
+                      <p>Pulsa este boton para cambiar la decoracion de tu casa</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="texto" ><img className="barra" src={heartLogo} /></td>
+                    <td tabIndex={0}>
+                      <p>Muestra el nivel de felicidad de tu Pal</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="texto" ><img className="barra" src={foodLogo} /></td>
+                    <td tabIndex={0}>
+                      <p>Muestra el nivel de hambre de tu Pal</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="texto" ><img className="barra" src={cleanLogo} /></td>
+                    <td tabIndex={0}>
+                      <p>Muestra el nivel de suciedad de tu Pal</p>
                     </td>
                   </tr>
                 </tbody>
               </table>
-              <p tabIndex={0}>¡Aquí estoy para ayudarte!</p>
+              
             </Col>
           </Row>
         </Container>
       </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={onHide}>Cerrar</Button>
-      </Modal.Footer>
+      
     </Modal>
   );
 }

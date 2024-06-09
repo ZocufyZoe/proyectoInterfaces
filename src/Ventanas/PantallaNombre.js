@@ -16,7 +16,7 @@ function PantallaNombre() {
   };
 
   return (
-    <div className="container d-flex flex-column align-items-center">
+    <div className="containerNombre d-flex flex-column align-items-center">
       <div className="card-custom p-5 mb-4">
         <h1 className="tituloNombre mb-4">Introduce el nombre de tu mascota:</h1>
         <p className="mb-4">(El nombre puede tener como máximo 20 caracteres)</p>

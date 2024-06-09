@@ -10,7 +10,7 @@ var sectionStyle = {
 
 function PantallaInicio() {
     return (
-        <div className="container d-flex flex-column justify-content-center align-items-center vh-100">
+        <div className="containerNombre d-flex flex-column justify-content-center align-items-center vh-100">
             <div className="titulo text-center">
                 <img src={Logo} className="img-fluid" alt="Logo" />
                 <h3 className="colorTextoHomepage"><strong></strong></h3>
